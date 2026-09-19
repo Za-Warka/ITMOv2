@@ -1,22 +1,22 @@
 # Журнал экспериментов Практики 2
 
-- Выбранный слабый артефакт Практики 1:
-- Что в нём нужно улучшить:
-- Как поймём, что изменение полезно:
+- Выбранный слабый артефакт Практики 1: practices/practice_01/tests_load.md
+- Что в нём нужно улучшить: однозначность сценариев, проверяемые пределы и evidence, условия отсрочки и триггер включения
+- Как поймём, что изменение полезно: таблица с ясными колонками, явные пороги/проверки, ссылки на SEC-1/API-1/REL-1/OUT-1/QA-1/OBS-1, наличие evidence; независимая проверка без вопросов
 
 | Техника | Файл эксперимента | Изменённый файл Практики 1 | Конкретное изменение | Проверка | Что отклонили |
 |---|---|---|---|---|---|
-| Few-shot | [`few_shot/experiment.md`](few_shot/experiment.md) |  |  |  |  |
-| R.C.T.F. | [`rctf/experiment.md`](rctf/experiment.md) |  |  |  |  |
-| Chain of Verification | [`chain_of_verification/experiment.md`](chain_of_verification/experiment.md) |  |  |  |  |
-| Tree of Thoughts | [`tree_of_thoughts/experiment.md`](tree_of_thoughts/experiment.md) |  |  |  |  |
-| RAG | [`rag/experiment.md`](rag/experiment.md) |  |  |  |  |
-| ReAct | [`react/experiment.md`](react/experiment.md) |  |  |  |  |
+| Few-shot | [`few_shot/experiment.md`](few_shot/experiment.md) | practices/practice_01/tests_load.md#таблица-нагрузочные-проверки | добавлен сценарий 'API-1: >20000 символов → 413' | ссылки на правила API-1 и OBS-1 из CONTEXT.md; наличие evidence; без логирования содержимого | числовые пороги без источников → Требуется решение команды |
+| R.C.T.F. | [`rctf/experiment.md`](rctf/experiment.md) | practices/practice_01/tests_load.md#раздел-отсрочки | уточнён триггер включения нагрузочного тестирования | ссылки на SEC-1/API-1/REL-1; evidence присутствует | расширение требований без источников → Требуется решение команды |
+| Chain of Verification | [`chain_of_verification/experiment.md`](chain_of_verification/experiment.md) | practices/practice_01/tests_load.md#таблица-нагрузочные-проверки | уточнены формулировки evidence и проверок по строке сценария API-1 | проверка на соответствие QA-1/OBS-1; evidence ссылается на CONTEXT.md | дополнительные метрики без подтверждения → Требуется решение команды |
+| Tree of Thoughts | [`tree_of_thoughts/experiment.md`](tree_of_thoughts/experiment.md) | practices/practice_01/tests_load.md#таблица-нагрузочные-проверки | унифицирована запись нагрузки и длительности ('50 RPS, 5 минут') | проверка читаемости и однозначности; независимый просмотр | любые новые сценарии вне контекста → Требуется решение команды |
+| RAG | [`rag/experiment.md`](rag/experiment.md) | practices/practice_01/tests_load.md#таблица-нагрузочные-проверки | добавлены явные ссылки на SEC-1/API-1/REL-1/OBS-1 в evidence | сверка с CONTEXT.md; наличие evidence; соблюдение OBS-1 | привязка к несуществующим источникам → Требуется решение команды |
+| ReAct | [`react/experiment.md`](react/experiment.md) | practices/practice_01/tests_load.md#как-использовали-ai | добавлен/уточнён раздел 'Как использовали AI' (нет скрытой CoT; указана P1-03) | проверка на отсутствие скрытой CoT; ссылки на prompts.md | любые интерпретации CoT без фиксации → Требуется решение команды |
 
 ## Независимое ревью
 
 | Замечание другой команды | Где исправили | Evidence |
 |---|---|---|
-| Двусмысленность |  |  |
-| Непроверяемое требование |  |  |
-| Пропущенный риск или источник |  |  |
+| Двусмысленность | tests_load.md — унифицировали формат записи нагрузки и длительности; уточнили формулировки evidence | таблица 'Нагрузочные проверки', строка 'Высокая частота ...', и строка 'API-1: вход > 20000 символов → 413' |
+| Непроверяемое требование | tests_load.md — добавили явные пороги и проверки для сценария API-1 | та же таблица; evidence ссылается на правила API-1 и OBS-1 из CONTEXT.md |
+| Пропущенный риск или источник | tests_load.md — добавлен сценарий API-1 (413 без вызова LLM) | таблица; evidence: правило API-1; соблюдение OBS-1 |
