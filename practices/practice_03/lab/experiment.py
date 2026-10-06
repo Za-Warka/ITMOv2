@@ -8,8 +8,8 @@ from pathlib import Path
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--mode", choices=["baseline", "system"], required=True)
-    p.add_argument("--model", default="qwen3.5:4b")
-    p.add_argument("--temperature", type=float, default=0.2)
+    p.add_argument("--model", default="qwen/qwen3.5-9b")
+    p.add_argument("--temperature", type=float, default=1.0)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--output", required=True)
     args = p.parse_args()
@@ -19,8 +19,8 @@ def main():
     if args.mode == "system":
         messages.append({"role": "system", "content": (root / "system.txt").read_text()})
     messages.append({"role": "user", "content": context + "\nКакая CI-система запускает тесты проекта?"})
-    payload = {"model": args.model, "messages": messages, "stream": False, "think": False,
-               "options": {"temperature": args.temperature, "seed": args.seed, "num_ctx": 4096, "num_predict": 512}}
+    payload = {"model": args.model, "messages": messages, "stream": False, "think": True,
+               "options": {"temperature": args.temperature, "seed": args.seed, "num_ctx": 32768, "num_predict": 512}}
     request = urllib.request.Request("http://localhost:11434/api/chat",
         data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"})
     started = time.perf_counter()
@@ -41,4 +41,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
