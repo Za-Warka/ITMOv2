@@ -1,0 +1,530 @@
+{
+  "transport": "MCP stdio, SDK Client → SDK Server",
+  "verifiedAt": "2026-10-06T18:50:29.977Z",
+  "tools": [
+    "preview_civilization"
+  ],
+  "success": {
+    "input": {
+      "snapshot": {
+        "id": 147,
+        "name": "atlas / living-garden",
+        "description": "Воображаемый проект. Настоящая история роста.",
+        "branch": "main",
+        "demo": true,
+        "archived": false,
+        "fork": false,
+        "commits": [
+          {
+            "sha": "demo-000000",
+            "date": "2023-02-01T10:00:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Новая глава истории проекта"
+          },
+          {
+            "sha": "demo-000001",
+            "date": "2023-02-02T13:36:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Добавлена навигация по атласу"
+          },
+          {
+            "sha": "demo-000002",
+            "date": "2023-02-03T17:12:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Обновлены компоненты карты"
+          },
+          {
+            "sha": "demo-000003",
+            "date": "2023-02-04T20:48:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Исправлена обработка дат"
+          },
+          {
+            "sha": "demo-000004",
+            "date": "2023-02-06T00:24:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Улучшена доступность интерфейса"
+          },
+          {
+            "sha": "demo-000005",
+            "date": "2023-02-07T04:00:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Добавлены примеры в документацию"
+          },
+          {
+            "sha": "demo-000006",
+            "date": "2023-02-08T07:36:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Ускорена загрузка истории"
+          },
+          {
+            "sha": "demo-000007",
+            "date": "2023-02-09T11:12:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Новые детали архитектуры"
+          },
+          {
+            "sha": "demo-000008",
+            "date": "2023-02-10T14:48:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Новая глава истории проекта"
+          },
+          {
+            "sha": "demo-000009",
+            "date": "2023-02-11T18:24:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Добавлена навигация по атласу"
+          },
+          {
+            "sha": "demo-000010",
+            "date": "2023-02-12T22:00:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Обновлены компоненты карты"
+          },
+          {
+            "sha": "demo-000011",
+            "date": "2023-02-14T01:36:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Исправлена обработка дат"
+          },
+          {
+            "sha": "demo-000012",
+            "date": "2023-02-15T05:12:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Улучшена доступность интерфейса"
+          },
+          {
+            "sha": "demo-000013",
+            "date": "2023-02-16T08:48:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Добавлены примеры в документацию"
+          },
+          {
+            "sha": "demo-000014",
+            "date": "2023-02-17T12:24:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Ускорена загрузка истории"
+          },
+          {
+            "sha": "demo-000015",
+            "date": "2023-02-18T16:00:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Новые детали архитектуры"
+          },
+          {
+            "sha": "demo-000016",
+            "date": "2023-02-19T19:36:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Новая глава истории проекта"
+          },
+          {
+            "sha": "demo-000017",
+            "date": "2023-02-20T23:12:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Добавлена навигация по атласу"
+          },
+          {
+            "sha": "demo-000018",
+            "date": "2023-02-22T02:48:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Обновлены компоненты карты"
+          },
+          {
+            "sha": "demo-000019",
+            "date": "2023-02-23T06:24:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Исправлена обработка дат"
+          },
+          {
+            "sha": "demo-000020",
+            "date": "2023-02-24T10:00:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Улучшена доступность интерфейса"
+          },
+          {
+            "sha": "demo-000021",
+            "date": "2023-02-25T13:36:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Добавлены примеры в документацию"
+          },
+          {
+            "sha": "demo-000022",
+            "date": "2023-02-26T17:12:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Ускорена загрузка истории"
+          },
+          {
+            "sha": "demo-000023",
+            "date": "2023-02-27T20:48:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Новые детали архитектуры"
+          },
+          {
+            "sha": "demo-000024",
+            "date": "2023-03-01T00:24:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Новая глава истории проекта"
+          },
+          {
+            "sha": "demo-000025",
+            "date": "2023-03-02T04:00:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Добавлена навигация по атласу"
+          },
+          {
+            "sha": "demo-000026",
+            "date": "2023-03-03T07:36:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Обновлены компоненты карты"
+          },
+          {
+            "sha": "demo-000027",
+            "date": "2023-03-04T11:12:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Исправлена обработка дат"
+          },
+          {
+            "sha": "demo-000028",
+            "date": "2023-03-05T14:48:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Улучшена доступность интерфейса"
+          },
+          {
+            "sha": "demo-000029",
+            "date": "2023-03-06T18:24:00.000Z",
+            "authorId": "author-0",
+            "authorName": "Александра",
+            "bot": false,
+            "message": "Добавлены примеры в документацию"
+          }
+        ],
+        "languages": {
+          "TypeScript": 68000,
+          "Python": 21000,
+          "JavaScript": 11000
+        },
+        "coverage": {
+          "headSha": "demo-000863",
+          "fetchedAt": "2026-01-01T00:00:00.000Z",
+          "languagesFetchedAt": "2026-01-01T00:00:00.000Z",
+          "historyComplete": false,
+          "loadedCommitCount": 30,
+          "rangeStart": "2023-02-01T10:00:00.000Z",
+          "rangeEnd": "2023-03-06T18:24:00.000Z",
+          "reasons": [
+            "Тестовая выборка: 30 коммитов."
+          ]
+        }
+      },
+      "date": "2023-03-06T18:24:00.000Z"
+    },
+    "result": {
+      "algorithmVersion": 2,
+      "dominantLanguage": "TypeScript",
+      "culture": {
+        "name": "Лига зодчих",
+        "style": "arcade",
+        "color": "#456d53",
+        "architecture": "Каменные аркады и строгие геометричные фасады",
+        "capital": "Дворец зодчих",
+        "titles": [
+          "Первый зодчий",
+          "Хранитель города",
+          "Глава совета",
+          "Главный инженер",
+          "Мастер мостов",
+          "Хранитель библиотеки",
+          "Глава мастерских",
+          "Летописец",
+          "Мастер садов",
+          "Картограф"
+        ]
+      },
+      "leaders": [
+        {
+          "id": "author-0",
+          "name": "Александра",
+          "commits": 30,
+          "rank": 1,
+          "title": "Первый зодчий",
+          "share": 1
+        }
+      ],
+      "humanCommits": 30,
+      "era": 2,
+      "eraName": "Поселение",
+      "commitCount": 30,
+      "authors": [
+        {
+          "id": "author-0",
+          "name": "Александра",
+          "bot": false
+        }
+      ],
+      "lots": 4,
+      "buildings": [
+        {
+          "id": "capital",
+          "x": 0,
+          "y": 0,
+          "kind": "capital",
+          "language": "TypeScript",
+          "level": 2,
+          "name": "Дом собраний"
+        },
+        {
+          "id": "home-0",
+          "x": -1,
+          "y": -1,
+          "kind": "home",
+          "language": "TypeScript",
+          "level": 2,
+          "name": "Жилой квартал 1"
+        },
+        {
+          "id": "home-1",
+          "x": -1,
+          "y": 1,
+          "kind": "home",
+          "language": "TypeScript",
+          "level": 2,
+          "name": "Жилой квартал 2"
+        },
+        {
+          "id": "home-2",
+          "x": 1,
+          "y": -1,
+          "kind": "home",
+          "language": "TypeScript",
+          "level": 2,
+          "name": "Жилой квартал 3"
+        },
+        {
+          "id": "home-3",
+          "x": 1,
+          "y": 1,
+          "kind": "home",
+          "language": "TypeScript",
+          "level": 2,
+          "name": "Жилой квартал 4"
+        }
+      ],
+      "languages": [
+        {
+          "name": "TypeScript",
+          "bytes": 68000,
+          "share": 0.68
+        },
+        {
+          "name": "Python",
+          "bytes": 21000,
+          "share": 0.21
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 11000,
+          "share": 0.11
+        }
+      ],
+      "recentCount": 27,
+      "recentCommits": [
+        {
+          "sha": "demo-000029",
+          "date": "2023-03-06T18:24:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Добавлены примеры в документацию"
+        },
+        {
+          "sha": "demo-000028",
+          "date": "2023-03-05T14:48:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Улучшена доступность интерфейса"
+        },
+        {
+          "sha": "demo-000027",
+          "date": "2023-03-04T11:12:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Исправлена обработка дат"
+        },
+        {
+          "sha": "demo-000026",
+          "date": "2023-03-03T07:36:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Обновлены компоненты карты"
+        },
+        {
+          "sha": "demo-000025",
+          "date": "2023-03-02T04:00:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Добавлена навигация по атласу"
+        },
+        {
+          "sha": "demo-000024",
+          "date": "2023-03-01T00:24:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Новая глава истории проекта"
+        },
+        {
+          "sha": "demo-000023",
+          "date": "2023-02-27T20:48:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Новые детали архитектуры"
+        },
+        {
+          "sha": "demo-000022",
+          "date": "2023-02-26T17:12:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Ускорена загрузка истории"
+        },
+        {
+          "sha": "demo-000021",
+          "date": "2023-02-25T13:36:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Добавлены примеры в документацию"
+        },
+        {
+          "sha": "demo-000020",
+          "date": "2023-02-24T10:00:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Улучшена доступность интерфейса"
+        },
+        {
+          "sha": "demo-000019",
+          "date": "2023-02-23T06:24:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Исправлена обработка дат"
+        },
+        {
+          "sha": "demo-000018",
+          "date": "2023-02-22T02:48:00.000Z",
+          "authorId": "author-0",
+          "authorName": "Александра",
+          "bot": false,
+          "message": "Обновлены компоненты карты"
+        }
+      ],
+      "coverage": {
+        "headSha": "demo-000863",
+        "fetchedAt": "2026-01-01T00:00:00.000Z",
+        "languagesFetchedAt": "2026-01-01T00:00:00.000Z",
+        "historyComplete": false,
+        "loadedCommitCount": 30,
+        "rangeStart": "2023-02-01T10:00:00.000Z",
+        "rangeEnd": "2023-03-06T18:24:00.000Z",
+        "reasons": [
+          "Тестовая выборка: 30 коммитов."
+        ]
+      }
+    }
+  },
+  "invalidDate": {
+    "input": {
+      "date": "not-a-date"
+    },
+    "response": {
+      "content": [
+        {
+          "type": "text",
+          "text": "MCP error -32602: Input validation error: Invalid arguments for tool preview_civilization: Invalid ISO datetime at date"
+        }
+      ],
+      "isError": true
+    }
+  },
+  "invalidLanguage": {
+    "input": {
+      "languages": {
+        "Python": -1
+      }
+    },
+    "response": {
+      "content": [
+        {
+          "type": "text",
+          "text": "MCP error -32602: Input validation error: Invalid arguments for tool preview_civilization: Too small: expected number to be >=0 at snapshot.languages.Python"
+        }
+      ],
+      "isError": true
+    }
+  }
+}
