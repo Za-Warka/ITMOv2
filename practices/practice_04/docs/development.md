@@ -66,3 +66,7 @@ MCP работает через stdio. Команда `mcp` ожидает по�
 `playwright` использован через локальный wrapper `skills/playwright/scripts/playwright_cli.sh`. Снимки структуры страницы дают актуальные элементы для взаимодействия; screenshot позволяет проверить компоновку. Результаты лежат в `output/playwright` и не включаются в Git как автоматически генерируемые файлы.
 
 Шрифты Literata и Golos Text поставляются локально npm-пакетами Fontsource, лицензии находятся в соответствующих пакетах. SVG-иллюстрации написаны для этого проекта.
+
+## Демонстрация hook
+
+`npm run hook:demo` сохраняет временный исходный файл, дожидается автоматического запуска runner и удаляет файл. Настройки: `hooks/config.json`, обработчик: `hooks/after-save.mjs`. Журнал демонстрации: `docs/hook-example.log`, последний запуск: `output/hooks/latest.log`. Сценарий защиты: [examples.md](../examples.md).

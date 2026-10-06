@@ -10,14 +10,15 @@
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
     "start": "next start --hostname 127.0.0.1",
-    "lint": "eslint src tests mcp scripts",
+    "lint": "eslint src tests mcp scripts hooks",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "check": "npm run lint && npm run typecheck && npm test",
     "mcp": "tsx mcp/server.ts",
     "mcp:verify": "tsx scripts/verify-mcp.ts",
     "check:watch": "node scripts/watch-check.mjs",
-    "format": "prettier --write src tests mcp scripts next.config.ts eslint.config.mjs vitest.config.ts"
+    "format": "prettier --write src tests mcp scripts next.config.ts eslint.config.mjs vitest.config.ts",
+    "hook:demo": "node scripts/demo-hook.mjs"
   },
   "dependencies": {
     "@fontsource-variable/golos-text": "5.3.0",

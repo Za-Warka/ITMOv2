@@ -59,3 +59,5 @@ npm run dev
 - [Подтверждения проверок](docs/verification.md)
 - [Результаты реальных MCP-вызовов](docs/mcp-verification.json)
 - [Концепция и правила проекта](AGENTS.md)
+
+- [Примеры для ревьювера: правила, skills, MCP и hook](examples.md)

@@ -1,6 +1,6 @@
 {
   "transport": "MCP stdio, SDK Client → SDK Server",
-  "verifiedAt": "2026-10-06T18:50:29.977Z",
+  "verifiedAt": "2026-10-06T21:05:37.341Z",
   "tools": [
     "preview_civilization"
   ],

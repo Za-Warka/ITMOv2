@@ -1,32 +1,58 @@
-// Filesystem save hook. Works independently of the agent client.
-import { watch } from "node:fs";
-import { spawn } from "node:child_process";
+import { watch, readFileSync } from "node:fs";
+import { extname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { afterSave } from "../hooks/after-save.mjs";
+const root = fileURLToPath(new URL("../", import.meta.url));
+const config = JSON.parse(
+  readFileSync(resolve(root, "hooks/config.json"), "utf8"),
+);
+const once = process.argv.includes("--once");
+const changed = new Set();
+const watchers = [];
 let timer,
-  running = false,
-  queued = false;
-function check() {
-  if (running) {
-    queued = true;
-    return;
-  }
-  running = true;
-  console.log("[save-hook] Running lint, types and unit tests");
-  const child = spawn("npm", ["run", "check"], { stdio: "inherit" });
-  child.on("exit", (code) => {
-    running = false;
-    console.log(`[save-hook] Result: ${code === 0 ? "PASS" : "FAIL"}`);
-    if (queued) {
-      queued = false;
-      check();
-    }
-  });
+  running = false;
+function close() {
+  clearTimeout(timer);
+  for (const watcher of watchers) watcher.close();
 }
-for (const dir of ["src", "tests", "mcp"])
-  watch(dir, { recursive: true }, (_, name) => {
-    if (!name || !/\.(ts|tsx|css)$/.test(name)) return;
+async function check() {
+  if (running || !changed.size) return;
+  running = true;
+  const files = [...changed].sort();
+  changed.clear();
+  try {
+    const code = await afterSave(root, config, files);
+    if (once) {
+      close();
+      process.exitCode = code;
+      return;
+    }
+  } catch (error) {
+    console.error(`[save-hook] ${error.message}`);
+    close();
+    process.exitCode = 1;
+    return;
+  } finally {
+    running = false;
+  }
+  if (changed.size) timer = setTimeout(check, config.debounceMs);
+}
+for (const dir of config.watchPaths) {
+  const watcher = watch(resolve(root, dir), { recursive: true }, (_, name) => {
+    if (!name || !config.extensions.includes(extname(name))) return;
+    changed.add(`${dir}/${name}`);
     clearTimeout(timer);
-    timer = setTimeout(check, 500);
+    timer = setTimeout(check, config.debounceMs);
   });
+  watcher.on("error", (error) => {
+    console.error(`[save-hook] Watcher failed: ${error.message}`);
+    close();
+    process.exitCode = 1;
+  });
+  watchers.push(watcher);
+}
+process.on("SIGINT", close);
+process.on("SIGTERM", close);
 console.log(
-  "[save-hook] Watching src/, tests/, mcp/. Save a source file to run checks.",
+  `[save-hook] READY: ${config.watchPaths.join(", ")}; debounce ${config.debounceMs} ms`,
 );
