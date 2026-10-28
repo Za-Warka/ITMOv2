@@ -1,0 +1,92 @@
+:root {
+  --paper: #f5f0e4;
+  --surface: #fffcf4;
+  --sand: #d9c9aa;
+  --meadow: #a8bb8a;
+  --forest: #315642;
+  --ink: #29382d;
+  color-scheme: light;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Golos Text Variable", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+  color: inherit;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+a {
+  color: inherit;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--forest);
+  outline-offset: 4px;
+}
+button {
+  border: 0;
+  background: none;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h1,
+h2,
+h3 {
+  font-family: "Literata Variable", Georgia, serif;
+  font-weight: 500;
+}
+a {
+  text-underline-offset: 4px;
+}
+::selection {
+  background: #c8d5b4;
+}
+svg {
+  display: block;
+}
+input[type="checkbox"],
+input[type="range"] {
+  accent-color: var(--forest);
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
