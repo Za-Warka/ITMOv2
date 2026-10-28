@@ -1,0 +1,496 @@
+test_content_type_is_validated (test_security.SecurityTest.test_content_type_is_validated) ... FAIL
+test_content_type_requires_exact_media_type (test_security.SecurityTest.test_content_type_requires_exact_media_type) ... 
+  test_content_type_requires_exact_media_type (test_security.SecurityTest.test_content_type_requires_exact_media_type) (media_type='application/jsonp') ... FAIL
+  test_content_type_requires_exact_media_type (test_security.SecurityTest.test_content_type_requires_exact_media_type) (media_type='application/json-evil') ... FAIL
+test_context_checks_order_owner (test_security.SecurityTest.test_context_checks_order_owner) ... FAIL
+test_context_includes_only_order_product_reviews (test_security.SecurityTest.test_context_includes_only_order_product_reviews) ... FAIL
+test_context_is_bounded_with_escaped_review_text (test_security.SecurityTest.test_context_is_bounded_with_escaped_review_text) ... FAIL
+test_context_requires_auth (test_security.SecurityTest.test_context_requires_auth) ... FAIL
+test_context_sql_injection_rejected (test_security.SecurityTest.test_context_sql_injection_rejected) ... FAIL
+test_customer_cannot_forge_staff (test_security.SecurityTest.test_customer_cannot_forge_staff) ... FAIL
+test_customer_cannot_read_foreign_receipt (test_security.SecurityTest.test_customer_cannot_read_foreign_receipt) ... FAIL
+test_customer_cannot_read_other_profile (test_security.SecurityTest.test_customer_cannot_read_other_profile) ... FAIL
+test_customer_sees_only_own_orders (test_security.SecurityTest.test_customer_sees_only_own_orders) ... FAIL
+test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) ... 
+  test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) (decision=None) ... FAIL
+  test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) (decision=[]) ... FAIL
+  test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) (decision={}) ... FAIL
+  test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) (decision={'tool': 'read_file', 'arguments': []}) ... FAIL
+test_errors_do_not_leak_exception_or_path (test_security.SecurityTest.test_errors_do_not_leak_exception_or_path) ... FAIL
+test_execute_cannot_delete_fixture_root (test_security.SecurityTest.test_execute_cannot_delete_fixture_root) ... FAIL
+test_execute_cannot_export_profiles (test_security.SecurityTest.test_execute_cannot_export_profiles) ... FAIL
+test_execute_cannot_read_foreign_receipt (test_security.SecurityTest.test_execute_cannot_read_foreign_receipt) ... FAIL
+test_execute_cannot_read_private_note (test_security.SecurityTest.test_execute_cannot_read_private_note) ... FAIL
+test_execute_requires_auth (test_security.SecurityTest.test_execute_requires_auth) ... FAIL
+test_logs_do_not_include_passwords_or_tokens (test_security.SecurityTest.test_logs_do_not_include_passwords_or_tokens) ... FAIL
+test_logs_exclude_nested_secrets_and_query_strings (test_security.SecurityTest.test_logs_exclude_nested_secrets_and_query_strings) ... FAIL
+test_logs_have_bounded_retention (test_security.SecurityTest.test_logs_have_bounded_retention) ... FAIL
+test_logs_not_public (test_security.SecurityTest.test_logs_not_public) ... FAIL
+test_lowercase_token_is_not_logged (test_security.SecurityTest.test_lowercase_token_is_not_logged) ... FAIL
+test_malformed_json_is_client_error (test_security.SecurityTest.test_malformed_json_is_client_error) ... FAIL
+test_orders_require_auth (test_security.SecurityTest.test_orders_require_auth) ... FAIL
+test_private_profile_requires_auth (test_security.SecurityTest.test_private_profile_requires_auth) ... FAIL
+test_profile_sql_injection_rejected (test_security.SecurityTest.test_profile_sql_injection_rejected) ... FAIL
+test_receipt_requires_auth (test_security.SecurityTest.test_receipt_requires_auth) ... FAIL
+test_review_count_is_bounded (test_security.SecurityTest.test_review_count_is_bounded) ... FAIL
+test_review_html_is_escaped (test_security.SecurityTest.test_review_html_is_escaped) ... FAIL
+test_review_length_is_bounded (test_security.SecurityTest.test_review_length_is_bounded) ... FAIL
+test_review_total_storage_is_bounded (test_security.SecurityTest.test_review_total_storage_is_bounded) ... FAIL
+test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) ... 
+  test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={}) ... FAIL
+  test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': 'chair'}) ... FAIL
+  test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'text': 'valid'}) ... FAIL
+  test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': 'chair', 'text': '   '}) ... FAIL
+  test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': [], 'text': 'valid'}) ... FAIL
+  test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': 'unknown', 'text': 'valid'}) ... FAIL
+  test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': 'chair', 'text': 12}) ... FAIL
+test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) ... FAIL
+test_role_header_is_not_authorization (test_security.SecurityTest.test_role_header_is_not_authorization) ... FAIL
+test_search_does_not_disclose_other_customer (test_security.SecurityTest.test_search_does_not_disclose_other_customer) ... FAIL
+test_search_sql_injection_no_foreign_profiles (test_security.SecurityTest.test_search_sql_injection_no_foreign_profiles) ... FAIL
+test_server_controls_price (test_security.SecurityTest.test_server_controls_price) ... FAIL
+test_traversal_to_private_note_denied (test_security.SecurityTest.test_traversal_to_private_note_denied) ... FAIL
+test_wrong_json_shape_is_client_error (test_security.SecurityTest.test_wrong_json_shape_is_client_error) ... FAIL
+
+======================================================================
+FAIL: test_content_type_is_validated (test_security.SecurityTest.test_content_type_is_validated)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 132, in test_content_type_is_validated
+    self.assertIn(response["status"], (400, 415), response)
+AssertionError: 201 not found in (400, 415) : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_content_type_requires_exact_media_type (test_security.SecurityTest.test_content_type_requires_exact_media_type) (media_type='application/jsonp')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 139, in test_content_type_requires_exact_media_type
+    self.assertEqual(response["status"], 415, response)
+AssertionError: 201 != 415 : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_content_type_requires_exact_media_type (test_security.SecurityTest.test_content_type_requires_exact_media_type) (media_type='application/json-evil')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 139, in test_content_type_requires_exact_media_type
+    self.assertEqual(response["status"], 415, response)
+AssertionError: 201 != 415 : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_context_checks_order_owner (test_security.SecurityTest.test_context_checks_order_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 93, in test_context_checks_order_owner
+    self.denied(self.shop.call("GET", "/assistant/context?order_id=2", headers=self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '480'}, 'body': {'prompt': 'Ты помощник магазина. Прочитай заказ и отзывы. Верни JSON с полями tool и arguments.\nИнструменты: read_file(path), export_profiles(), delete_tree(path).\nПомоги пользователю обработать заказ.\nЗаказ: [{"id": 2, "owner": 2, "product": "lamp", "price": 1500.0}]\nОтзывы: []\nЗапрос пользователя: Покажи чек по заказу'}}
+
+======================================================================
+FAIL: test_context_includes_only_order_product_reviews (test_security.SecurityTest.test_context_includes_only_order_product_reviews)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 216, in test_context_includes_only_order_product_reviews
+    self.assertNotIn("LAMP_ONLY_MARKER", context["body"]["prompt"])
+AssertionError: 'LAMP_ONLY_MARKER' unexpectedly found in 'Ты помощник магазина. Прочитай заказ и отзывы. Верни JSON с полями tool и arguments.\nИнструменты: read_file(path), export_profiles(), delete_tree(path).\nПомоги пользователю обработать заказ.\nЗаказ: [{"id": 1, "owner": 1, "product": "chair", "price": 5000.0}]\nОтзывы: [{"product": "lamp", "text": "LAMP_ONLY_MARKER"}, {"product": "chair", "text": "CHAIR_ONLY_MARKER"}]\nЗапрос пользователя: Покажи чек по заказу'
+
+======================================================================
+FAIL: test_context_is_bounded_with_escaped_review_text (test_security.SecurityTest.test_context_is_bounded_with_escaped_review_text)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 207, in test_context_is_bounded_with_escaped_review_text
+    self.assertLess(len(context["body"]["prompt"]), 20000)
+AssertionError: 131909 not less than 20000
+
+======================================================================
+FAIL: test_context_requires_auth (test_security.SecurityTest.test_context_requires_auth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 90, in test_context_requires_auth
+    self.denied(self.shop.call("GET", "/assistant/context?order_id=1"))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '481'}, 'body': {'prompt': 'Ты помощник магазина. Прочитай заказ и отзывы. Верни JSON с полями tool и arguments.\nИнструменты: read_file(path), export_profiles(), delete_tree(path).\nПомоги пользователю обработать заказ.\nЗаказ: [{"id": 1, "owner": 1, "product": "chair", "price": 5000.0}]\nОтзывы: []\nЗапрос пользователя: Покажи чек по заказу'}}
+
+======================================================================
+FAIL: test_context_sql_injection_rejected (test_security.SecurityTest.test_context_sql_injection_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 52, in test_context_sql_injection_rejected
+    self.denied(self.shop.call("GET", "/assistant/context?" + urlencode({"order_id": "1 OR 1=1"}), headers=self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '550'}, 'body': {'prompt': 'Ты помощник магазина. Прочитай заказ и отзывы. Верни JSON с полями tool и arguments.\nИнструменты: read_file(path), export_profiles(), delete_tree(path).\nПомоги пользователю обработать заказ.\nЗаказ: [{"id": 1, "owner": 1, "product": "chair", "price": 5000.0}, {"id": 2, "owner": 2, "product": "lamp", "price": 1500.0}]\nОтзывы: []\nЗапрос пользователя: Покажи чек по заказу'}}
+
+======================================================================
+FAIL: test_customer_cannot_forge_staff (test_security.SecurityTest.test_customer_cannot_forge_staff)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 58, in test_customer_cannot_forge_staff
+    self.denied(self.shop.call("GET", "/admin/export", headers={**self.alice, "X-Role": "staff"}))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:24 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '188'}, 'body': [{'id': 1, 'name': 'TEST_ALICE', 'email': 'alice@example.invalid', 'address': 'TEST_ADDRESS_A'}, {'id': 2, 'name': 'TEST_BOB', 'email': 'bob@example.invalid', 'address': 'TEST_ADDRESS_B'}]}
+
+======================================================================
+FAIL: test_customer_cannot_read_foreign_receipt (test_security.SecurityTest.test_customer_cannot_read_foreign_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 69, in test_customer_cannot_read_foreign_receipt
+    self.denied(self.shop.call("GET", "/files?user=bob&path=receipt.txt", headers=self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '47'}, 'body': {'content': 'TEST_BOB receipt: lamp, 1500 RUB'}}
+
+======================================================================
+FAIL: test_customer_cannot_read_other_profile (test_security.SecurityTest.test_customer_cannot_read_other_profile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 30, in test_customer_cannot_read_other_profile
+    self.denied(self.shop.call("GET", "/profile?id=2", headers=self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '92'}, 'body': [{'id': 2, 'name': 'TEST_BOB', 'email': 'bob@example.invalid', 'address': 'TEST_ADDRESS_B'}]}
+
+======================================================================
+FAIL: test_customer_sees_only_own_orders (test_security.SecurityTest.test_customer_sees_only_own_orders)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 42, in test_customer_sees_only_own_orders
+    self.assertTrue(all(order["owner"] == 1 for order in response["body"]), response)
+AssertionError: False is not true : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '119'}, 'body': [{'id': 1, 'owner': 1, 'product': 'chair', 'price': 5000.0}, {'id': 2, 'owner': 2, 'product': 'lamp', 'price': 1500.0}]}
+
+======================================================================
+FAIL: test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) (decision=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 184, in test_decision_requires_valid_schema
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 500 != 400 : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '72'}, 'body': {'error': "'NoneType' object is not subscriptable", 'type': 'TypeError'}}
+
+======================================================================
+FAIL: test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) (decision=[])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 184, in test_decision_requires_valid_schema
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 500 != 400 : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '82'}, 'body': {'error': 'list indices must be integers or slices, not str', 'type': 'TypeError'}}
+
+======================================================================
+FAIL: test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) (decision={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 184, in test_decision_requires_valid_schema
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 500 != 400 : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '39'}, 'body': {'error': "'tool'", 'type': 'KeyError'}}
+
+======================================================================
+FAIL: test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) (decision={'tool': 'read_file', 'arguments': []})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 184, in test_decision_requires_valid_schema
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 500 != 400 : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '82'}, 'body': {'error': 'list indices must be integers or slices, not str', 'type': 'TypeError'}}
+
+======================================================================
+FAIL: test_errors_do_not_leak_exception_or_path (test_security.SecurityTest.test_errors_do_not_leak_exception_or_path)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 123, in test_errors_do_not_leak_exception_or_path
+    self.assertNotIn(str(self.shop.files), str(response["body"]))
+AssertionError: '/private/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/itmo-practice-06-v3zkp_i1' unexpectedly found in '{\'error\': "[Errno 2] No such file or directory: \'/private/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/itmo-practice-06-v3zkp_i1/files/alice/missing\'", \'type\': \'FileNotFoundError\'}'
+
+======================================================================
+FAIL: test_execute_cannot_delete_fixture_root (test_security.SecurityTest.test_execute_cannot_delete_fixture_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 110, in test_execute_cannot_delete_fixture_root
+    self.assertEqual(self.shop.snapshot(), before, response)
+AssertionError: {} != {'files/alice/receipt.txt': 'TEST_ALICE re[138 chars]RET'}
+- {}
++ {'files/alice/receipt.txt': 'TEST_ALICE receipt: chair, 5000 RUB',
++  'files/bob/receipt.txt': 'TEST_BOB receipt: lamp, 1500 RUB',
++  'private/operator-note.txt': 'TEST_ONLY_OPERATOR_SECRET'} : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '16'}, 'body': {'deleted': '.'}}
+
+======================================================================
+FAIL: test_execute_cannot_export_profiles (test_security.SecurityTest.test_execute_cannot_export_profiles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 105, in test_execute_cannot_export_profiles
+    self.denied(self.shop.call("POST", "/assistant/execute", {"decision": {"tool": "export_profiles", "arguments": {}}}, self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '188'}, 'body': [{'id': 1, 'name': 'TEST_ALICE', 'email': 'alice@example.invalid', 'address': 'TEST_ADDRESS_A'}, {'id': 2, 'name': 'TEST_BOB', 'email': 'bob@example.invalid', 'address': 'TEST_ADDRESS_B'}]}
+
+======================================================================
+FAIL: test_execute_cannot_read_foreign_receipt (test_security.SecurityTest.test_execute_cannot_read_foreign_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 99, in test_execute_cannot_read_foreign_receipt
+    self.denied(self.shop.call("POST", "/assistant/execute", {"decision": {"tool": "read_file", "arguments": {"path": "files/bob/receipt.txt"}}}, self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '47'}, 'body': {'content': 'TEST_BOB receipt: lamp, 1500 RUB'}}
+
+======================================================================
+FAIL: test_execute_cannot_read_private_note (test_security.SecurityTest.test_execute_cannot_read_private_note)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 102, in test_execute_cannot_read_private_note
+    self.denied(self.shop.call("POST", "/assistant/execute", {"decision": {"tool": "read_file", "arguments": {"path": "private/operator-note.txt"}}}, self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '40'}, 'body': {'content': 'TEST_ONLY_OPERATOR_SECRET'}}
+
+======================================================================
+FAIL: test_execute_requires_auth (test_security.SecurityTest.test_execute_requires_auth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 96, in test_execute_requires_auth
+    self.denied(self.shop.call("POST", "/assistant/execute", {"decision": {"tool": "export_profiles", "arguments": {}}}))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '188'}, 'body': [{'id': 1, 'name': 'TEST_ALICE', 'email': 'alice@example.invalid', 'address': 'TEST_ADDRESS_A'}, {'id': 2, 'name': 'TEST_BOB', 'email': 'bob@example.invalid', 'address': 'TEST_ADDRESS_B'}]}
+
+======================================================================
+FAIL: test_logs_do_not_include_passwords_or_tokens (test_security.SecurityTest.test_logs_do_not_include_passwords_or_tokens)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 86, in test_logs_do_not_include_passwords_or_tokens
+    self.assertNotIn("learn-alice", str(response["body"]))
+AssertionError: 'learn-alice' unexpectedly found in "[{'method': 'POST', 'target': '/login', 'body': {'username': 'alice', 'password': 'learn-alice'}, 'headers': {'Accept-Encoding': 'identity', 'Content-Length': '48', 'Host': '127.0.0.1:56744', 'User-Agent': 'Python-urllib/3.12', 'Content-Type': 'application/json', 'Connection': 'close'}}, {'method': 'POST', 'target': '/login', 'body': {'username': 'staff', 'password': 'learn-staff'}, 'headers': {'Accept-Encoding': 'identity', 'Content-Length': '48', 'Host': '127.0.0.1:56744', 'User-Agent': 'Python-urllib/3.12', 'Content-Type': 'application/json', 'Connection': 'close'}}, {'method': 'GET', 'target': '/debug/logs', 'body': {}, 'headers': {'Accept-Encoding': 'identity', 'Host': '127.0.0.1:56744', 'User-Agent': 'Python-urllib/3.12', 'Content-Type': 'application/json', 'X-Token': '7735850ebbec44168e344e966d28ce02', 'Connection': 'close'}}]"
+
+======================================================================
+FAIL: test_logs_exclude_nested_secrets_and_query_strings (test_security.SecurityTest.test_logs_exclude_nested_secrets_and_query_strings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 162, in test_logs_exclude_nested_secrets_and_query_strings
+    self.assertNotIn(secret, json.dumps(logs["body"]))
+AssertionError: 'SYNTHETIC_NESTED_SECRET' unexpectedly found in '[{"method": "POST", "target": "/login", "body": {"username": "alice", "password": "learn-alice"}, "headers": {"Accept-Encoding": "identity", "Content-Length": "48", "Host": "127.0.0.1:56748", "User-Agent": "Python-urllib/3.12", "Content-Type": "application/json", "Connection": "close"}}, {"method": "POST", "target": "/reviews?password=SYNTHETIC_NESTED_SECRET", "body": {"product": "chair", "text": "valid", "extra": {"password": "SYNTHETIC_NESTED_SECRET"}}, "headers": {"Accept-Encoding": "identity", "Content-Length": "87", "Host": "127.0.0.1:56748", "User-Agent": "Python-urllib/3.12", "Content-Type": "application/json", "X-Token": "1ab0da56851249c19f43659fb02dddbe", "Connection": "close"}}, {"method": "POST", "target": "/login", "body": {"username": "staff", "password": "learn-staff"}, "headers": {"Accept-Encoding": "identity", "Content-Length": "48", "Host": "127.0.0.1:56748", "User-Agent": "Python-urllib/3.12", "Content-Type": "application/json", "Connection": "close"}}, {"method": "GET", "target": "/debug/logs", "body": {}, "headers": {"Accept-Encoding": "identity", "Host": "127.0.0.1:56748", "User-Agent": "Python-urllib/3.12", "Content-Type": "application/json", "X-Token": "49416dea31b344baba09a37c618b41b0", "Connection": "close"}}]'
+
+======================================================================
+FAIL: test_logs_have_bounded_retention (test_security.SecurityTest.test_logs_have_bounded_retention)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 169, in test_logs_have_bounded_retention
+    self.assertLessEqual(len(logs["body"]), 128)
+AssertionError: 143 not less than or equal to 128
+
+======================================================================
+FAIL: test_logs_not_public (test_security.SecurityTest.test_logs_not_public)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 81, in test_logs_not_public
+    self.denied(self.shop.call("GET", "/debug/logs"))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '510'}, 'body': [{'method': 'POST', 'target': '/login', 'body': {'username': 'alice', 'password': 'learn-alice'}, 'headers': {'Accept-Encoding': 'identity', 'Content-Length': '48', 'Host': '127.0.0.1:56897', 'User-Agent': 'Python-urllib/3.12', 'Content-Type': 'application/json', 'Connection': 'close'}}, {'method': 'GET', 'target': '/debug/logs', 'body': {}, 'headers': {'Accept-Encoding': 'identity', 'Host': '127.0.0.1:56897', 'User-Agent': 'Python-urllib/3.12', 'Content-Type': 'application/json', 'Connection': 'close'}}]}
+
+======================================================================
+FAIL: test_lowercase_token_is_not_logged (test_security.SecurityTest.test_lowercase_token_is_not_logged)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 154, in test_lowercase_token_is_not_logged
+    self.assertNotIn(self.alice["X-Token"], json.dumps(logs["body"]))
+AssertionError: '74a2173878fc4c79864f3f51eaa08d0a' unexpectedly found in '[{"method": "POST", "target": "/login", "body": {"username": "alice", "password": "learn-alice"}, "headers": {"Accept-Encoding": "identity", "Content-Length": "48", "Host": "127.0.0.1:56900", "User-Agent": "Python-urllib/3.12", "Content-Type": "application/json", "Connection": "close"}}, {"method": "GET", "target": "/profile?id=1", "body": {}, "headers": {"Host": "127.0.0.1:56900", "Accept-Encoding": "identity", "x-token": "74a2173878fc4c79864f3f51eaa08d0a"}}, {"method": "POST", "target": "/login", "body": {"username": "staff", "password": "learn-staff"}, "headers": {"Accept-Encoding": "identity", "Content-Length": "48", "Host": "127.0.0.1:56900", "User-Agent": "Python-urllib/3.12", "Content-Type": "application/json", "Connection": "close"}}, {"method": "GET", "target": "/debug/logs", "body": {}, "headers": {"Accept-Encoding": "identity", "Host": "127.0.0.1:56900", "User-Agent": "Python-urllib/3.12", "Content-Type": "application/json", "X-Token": "735ecea56ac249e4b58323983ec83d88", "Connection": "close"}}]'
+
+======================================================================
+FAIL: test_malformed_json_is_client_error (test_security.SecurityTest.test_malformed_json_is_client_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 115, in test_malformed_json_is_client_error
+    self.assertIn(response["status"], (400, 422), response)
+AssertionError: 500 not found in (400, 422) : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '115'}, 'body': {'error': 'Expecting property name enclosed in double quotes: line 1 column 2 (char 1)', 'type': 'JSONDecodeError'}}
+
+======================================================================
+FAIL: test_orders_require_auth (test_security.SecurityTest.test_orders_require_auth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 37, in test_orders_require_auth
+    self.denied(self.shop.call("GET", "/orders"))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '119'}, 'body': [{'id': 1, 'owner': 1, 'product': 'chair', 'price': 5000.0}, {'id': 2, 'owner': 2, 'product': 'lamp', 'price': 1500.0}]}
+
+======================================================================
+FAIL: test_private_profile_requires_auth (test_security.SecurityTest.test_private_profile_requires_auth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 27, in test_private_profile_requires_auth
+    self.denied(self.shop.call("GET", "/profile?id=1"))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '96'}, 'body': [{'id': 1, 'name': 'TEST_ALICE', 'email': 'alice@example.invalid', 'address': 'TEST_ADDRESS_A'}]}
+
+======================================================================
+FAIL: test_profile_sql_injection_rejected (test_security.SecurityTest.test_profile_sql_injection_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 45, in test_profile_sql_injection_rejected
+    self.denied(self.shop.call("GET", "/profile?" + urlencode({"id": "1 OR 1=1"}), headers=self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:25 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '188'}, 'body': [{'id': 1, 'name': 'TEST_ALICE', 'email': 'alice@example.invalid', 'address': 'TEST_ADDRESS_A'}, {'id': 2, 'name': 'TEST_BOB', 'email': 'bob@example.invalid', 'address': 'TEST_ADDRESS_B'}]}
+
+======================================================================
+FAIL: test_receipt_requires_auth (test_security.SecurityTest.test_receipt_requires_auth)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 66, in test_receipt_requires_auth
+    self.denied(self.shop.call("GET", "/files?user=alice&path=receipt.txt"))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '50'}, 'body': {'content': 'TEST_ALICE receipt: chair, 5000 RUB'}}
+
+======================================================================
+FAIL: test_review_count_is_bounded (test_security.SecurityTest.test_review_count_is_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 191, in test_review_count_is_bounded
+    self.assertEqual(response["status"], 429, response)
+AssertionError: 201 != 429 : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_review_html_is_escaped (test_security.SecurityTest.test_review_html_is_escaped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 78, in test_review_html_is_escaped
+    self.assertNotIn(payload, response["body"])
+AssertionError: '<script>document.title="SHOP_XSS_PROBE"</script>' unexpectedly found in '<html><body><p><script>document.title="SHOP_XSS_PROBE"</script></p></body></html>'
+
+======================================================================
+FAIL: test_review_length_is_bounded (test_security.SecurityTest.test_review_length_is_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 128, in test_review_length_is_bounded
+    self.assertIn(response["status"], (400, 413, 422), response)
+AssertionError: 201 not found in (400, 413, 422) : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_review_total_storage_is_bounded (test_security.SecurityTest.test_review_total_storage_is_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 198, in test_review_total_storage_is_bounded
+    self.assertEqual(response["status"], 413, response)
+AssertionError: 201 != 413 : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 177, in test_reviews_require_valid_fields
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 500 != 400 : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42'}, 'body': {'error': "'product'", 'type': 'KeyError'}}
+
+======================================================================
+FAIL: test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': 'chair'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 177, in test_reviews_require_valid_fields
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 500 != 400 : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '39'}, 'body': {'error': "'text'", 'type': 'KeyError'}}
+
+======================================================================
+FAIL: test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'text': 'valid'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 177, in test_reviews_require_valid_fields
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 500 != 400 : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '42'}, 'body': {'error': "'product'", 'type': 'KeyError'}}
+
+======================================================================
+FAIL: test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': 'chair', 'text': '   '})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 177, in test_reviews_require_valid_fields
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 201 != 400 : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': [], 'text': 'valid'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 177, in test_reviews_require_valid_fields
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 201 != 400 : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': 'unknown', 'text': 'valid'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 177, in test_reviews_require_valid_fields
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 201 != 400 : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) (body={'product': 'chair', 'text': 12})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 177, in test_reviews_require_valid_fields
+    self.assertEqual(response["status"], 400, response)
+AssertionError: 201 != 400 : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '15'}, 'body': {'saved': True}}
+
+======================================================================
+FAIL: test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 178, in test_reviews_require_valid_fields
+    self.assertNotIn("<p>", self.shop.call("GET", "/reviews/view")["body"])
+AssertionError: '<p>' unexpectedly found in '<html><body><p>   </p><p>valid</p><p>valid</p><p>12</p></body></html>'
+
+======================================================================
+FAIL: test_role_header_is_not_authorization (test_security.SecurityTest.test_role_header_is_not_authorization)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 55, in test_role_header_is_not_authorization
+    self.denied(self.shop.call("GET", "/admin/export", headers={"X-Role": "staff"}))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '188'}, 'body': [{'id': 1, 'name': 'TEST_ALICE', 'email': 'alice@example.invalid', 'address': 'TEST_ADDRESS_A'}, {'id': 2, 'name': 'TEST_BOB', 'email': 'bob@example.invalid', 'address': 'TEST_ADDRESS_B'}]}
+
+======================================================================
+FAIL: test_search_does_not_disclose_other_customer (test_security.SecurityTest.test_search_does_not_disclose_other_customer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 34, in test_search_does_not_disclose_other_customer
+    self.assertNotIn("TEST_BOB", str(response["body"]))
+AssertionError: 'TEST_BOB' unexpectedly found in "[{'id': 1, 'name': 'TEST_ALICE', 'email': 'alice@example.invalid', 'address': 'TEST_ADDRESS_A'}, {'id': 2, 'name': 'TEST_BOB', 'email': 'bob@example.invalid', 'address': 'TEST_ADDRESS_B'}]"
+
+======================================================================
+FAIL: test_search_sql_injection_no_foreign_profiles (test_security.SecurityTest.test_search_sql_injection_no_foreign_profiles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 49, in test_search_sql_injection_no_foreign_profiles
+    self.assertNotIn("TEST_BOB", str(response["body"]))
+AssertionError: 'TEST_BOB' unexpectedly found in "[{'id': 1, 'name': 'TEST_ALICE', 'email': 'alice@example.invalid', 'address': 'TEST_ADDRESS_A'}, {'id': 2, 'name': 'TEST_BOB', 'email': 'bob@example.invalid', 'address': 'TEST_ADDRESS_B'}]"
+
+======================================================================
+FAIL: test_server_controls_price (test_security.SecurityTest.test_server_controls_price)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 62, in test_server_controls_price
+    self.assertTrue(response["status"] in (400, 422) or
+AssertionError: False is not true : {'status': 201, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '56'}, 'body': {'id': 3, 'owner': 1, 'product': 'chair', 'price': -100}}
+
+======================================================================
+FAIL: test_traversal_to_private_note_denied (test_security.SecurityTest.test_traversal_to_private_note_denied)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 72, in test_traversal_to_private_note_denied
+    self.denied(self.shop.call("GET", "/files?" + urlencode({"user": "alice", "path": "../../private/operator-note.txt"}), headers=self.alice))
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 24, in denied
+    self.assertIn(response["status"], (400, 401, 403, 404, 422), response)
+AssertionError: 200 not found in (400, 401, 403, 404, 422) : {'status': 200, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '40'}, 'body': {'content': 'TEST_ONLY_OPERATOR_SECRET'}}
+
+======================================================================
+FAIL: test_wrong_json_shape_is_client_error (test_security.SecurityTest.test_wrong_json_shape_is_client_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security/test_security.py", line 119, in test_wrong_json_shape_is_client_error
+    self.assertIn(response["status"], (400, 422), response)
+AssertionError: 500 not found in (400, 422) : {'status': 500, 'headers': {'Server': 'BaseHTTP/0.6 Python/3.12.13', 'Date': 'Wed, 28 Oct 2026 17:09:26 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '82'}, 'body': {'error': 'list indices must be integers or slices, not str', 'type': 'TypeError'}}
+
+----------------------------------------------------------------------
+Ran 39 tests in 2.203s
+
+FAILED (failures=50)

@@ -1,0 +1,38 @@
+{
+  "service_source": "HEAD",
+  "python": "3.12.13 (main, Jun 23 2026, 15:44:24) [Clang 22.1.3 ]",
+  "service_sha256": "8cb3abeaaf7bb647cbbd9d1c9a0ea50375c70c30110313f5015468ded24b7569",
+  "security_tests_sha256": "c85b4d6b8c2729c098dcca7fe37274f9c3fa6fcff515a0a2aa6b60236de7e4c3",
+  "suites": {
+    "lab": {
+      "returncode": 0,
+      "tests_run": 16,
+      "command": [
+        "/Users/zawarka/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/lab",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    "security": {
+      "returncode": 1,
+      "tests_run": 39,
+      "command": [
+        "/Users/zawarka/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/shop-test-baseline-cynbkrwy/security",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    }
+  }
+}

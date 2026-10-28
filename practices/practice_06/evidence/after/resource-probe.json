@@ -1,0 +1,7 @@
+{
+  "reviews_attempted": 13,
+  "max_single_text_chars": 16000,
+  "context_chars": 13196,
+  "baseline_context_chars": 394,
+  "interpretation": "bounded probe only; inspect responses and context length, no host exhaustion attempted"
+}

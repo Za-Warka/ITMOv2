@@ -1,0 +1,15 @@
+{
+  "started": "2026-10-28T17:09:37.222024+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "base_url": "http://127.0.0.1:57011",
+  "fixture_root": "/private/var/folders/hd/7tghlf6x65936gphnz_k5vj00000gn/T/itmo-practice-06-jxenwu00",
+  "git_commit": "0c8a9c1567e334a00502a2d83bd3d9997b2b2687",
+  "service_source": "working tree",
+  "sha256": {
+    "lab/service.py": "493cf2b4ccc99432dd2cd6d2d2cdfd5b7c5cda5535ecd53ad420f36f20ea993c",
+    "lab/sandbox.py": "dcd6b6630d3dec67e7185c1017e4999a3faa5998ff091419dade31b64132ddcf",
+    "planner-system.txt": "3a5a2ea368e99f86be432c817a6f9cf364f79eb8cf7a056c44d19f0fca978e79",
+    "opencode.json": "d1f28afc7e8de578bc90c6f01447477e52c8dc6c0a7d915e06dc76981745d26f"
+  }
+}

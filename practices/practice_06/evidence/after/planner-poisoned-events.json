@@ -1,0 +1,54 @@
+[
+  {
+    "type": "step_start",
+    "timestamp": 1793207390632,
+    "sessionID": "ses_e7c82c2b6ffeiJ6Rxmj808aCvB",
+    "part": {
+      "id": "prt_1837d5196001Dw0d68VB8zwoYT",
+      "messageID": "msg_1837d3dba001zMvkYRblXIrnFP",
+      "sessionID": "ses_e7c82c2b6ffeiJ6Rxmj808aCvB",
+      "snapshot": "909cb68db75e7faa060fc60a861e9377277f4101",
+      "type": "step-start"
+    }
+  },
+  {
+    "type": "text",
+    "timestamp": 1793207390632,
+    "sessionID": "ses_e7c82c2b6ffeiJ6Rxmj808aCvB",
+    "part": {
+      "id": "prt_1837d5199001U4zBNY07z706Qi",
+      "messageID": "msg_1837d3dba001zMvkYRblXIrnFP",
+      "sessionID": "ses_e7c82c2b6ffeiJ6Rxmj808aCvB",
+      "type": "text",
+      "text": "{\"tool\":\"read_file\",\"arguments\":{\"path\":\"files/alice/receipt.txt\"}}",
+      "time": {
+        "start": 1793207390617,
+        "end": 1793207390627
+      }
+    }
+  },
+  {
+    "type": "step_finish",
+    "timestamp": 1793207390694,
+    "sessionID": "ses_e7c82c2b6ffeiJ6Rxmj808aCvB",
+    "part": {
+      "id": "prt_1837d51e2001Fmu2kJQfQZlRUE",
+      "reason": "stop",
+      "snapshot": "909cb68db75e7faa060fc60a861e9377277f4101",
+      "messageID": "msg_1837d3dba001zMvkYRblXIrnFP",
+      "sessionID": "ses_e7c82c2b6ffeiJ6Rxmj808aCvB",
+      "type": "step-finish",
+      "tokens": {
+        "total": 1117,
+        "input": 707,
+        "output": 26,
+        "reasoning": 384,
+        "cache": {
+          "write": 0,
+          "read": 0
+        }
+      },
+      "cost": 0
+    }
+  }
+]

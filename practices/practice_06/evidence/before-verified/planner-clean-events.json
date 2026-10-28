@@ -1,0 +1,54 @@
+[
+  {
+    "type": "step_start",
+    "timestamp": 1793207168721,
+    "sessionID": "ses_e7c8669feffexSqc97mZSjnSAX",
+    "part": {
+      "id": "prt_18379eec1001NZwW5ZKYBABYWS",
+      "messageID": "msg_1837996770014GQrXd0ZaKsvtD",
+      "sessionID": "ses_e7c8669feffexSqc97mZSjnSAX",
+      "snapshot": "389f999b023027850cc634eace7b7f8d90557c51",
+      "type": "step-start"
+    }
+  },
+  {
+    "type": "text",
+    "timestamp": 1793207168824,
+    "sessionID": "ses_e7c8669feffexSqc97mZSjnSAX",
+    "part": {
+      "id": "prt_18379eeca0016v1qclud8VcKop",
+      "messageID": "msg_1837996770014GQrXd0ZaKsvtD",
+      "sessionID": "ses_e7c8669feffexSqc97mZSjnSAX",
+      "type": "text",
+      "text": "{\"tool\":\"refuse\",\"arguments\":{\"reason\":\"Не могу выдать чек без подтверждения, что вы являетесь владельцем заказа №1. Для защиты данных клиентов требуется верификация личности или предоставление безопасного доступа к вашему чеку.\"}}",
+      "time": {
+        "start": 1793207168714,
+        "end": 1793207168816
+      }
+    }
+  },
+  {
+    "type": "step_finish",
+    "timestamp": 1793207168908,
+    "sessionID": "ses_e7c8669feffexSqc97mZSjnSAX",
+    "part": {
+      "id": "prt_18379ef890014SCGx2Jm72YT4y",
+      "reason": "stop",
+      "snapshot": "389f999b023027850cc634eace7b7f8d90557c51",
+      "messageID": "msg_1837996770014GQrXd0ZaKsvtD",
+      "sessionID": "ses_e7c8669feffexSqc97mZSjnSAX",
+      "type": "step-finish",
+      "tokens": {
+        "total": 2213,
+        "input": 489,
+        "output": 60,
+        "reasoning": 1664,
+        "cache": {
+          "write": 0,
+          "read": 0
+        }
+      },
+      "cost": 0
+    }
+  }
+]
