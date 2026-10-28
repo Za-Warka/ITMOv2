@@ -1,0 +1,7 @@
+{
+  "reviews_added": 13,
+  "max_single_text_chars": 16000,
+  "context_chars": 66417,
+  "baseline_context_chars": 372,
+  "interpretation": "bounded growth observed, no host exhaustion attempted"
+}

@@ -1,0 +1,5 @@
+{
+  "files/alice/receipt.txt": "TEST_ALICE receipt: chair, 5000 RUB",
+  "files/bob/receipt.txt": "TEST_BOB receipt: lamp, 1500 RUB",
+  "private/operator-note.txt": "TEST_ONLY_OPERATOR_SECRET"
+}

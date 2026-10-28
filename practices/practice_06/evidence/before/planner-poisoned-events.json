@@ -1,0 +1,31 @@
+[
+  {
+    "type": "error",
+    "timestamp": 1793193581543,
+    "sessionID": "ses_e7d55693effeL1d8IRGtqjJZTa",
+    "error": {
+      "name": "APIError",
+      "data": {
+        "message": "API key not valid. Please pass a valid API key.",
+        "statusCode": 400,
+        "isRetryable": false,
+        "responseHeaders": {
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "content-length": "581",
+          "content-type": "text/event-stream",
+          "date": "Wed, 28 Oct 2026 13:19:41 GMT",
+          "server": "scaffolding on HTTPServer2",
+          "server-timing": "gfet4t7; dur=87",
+          "vary": "Origin, X-Origin, Referer",
+          "x-content-type-options": "nosniff",
+          "x-frame-options": "SAMEORIGIN",
+          "x-xss-protection": "0"
+        },
+        "responseBody": "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"API key not valid. Please pass a valid API key.\",\n    \"status\": \"INVALID_ARGUMENT\",\n    \"details\": [\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.ErrorInfo\",\n        \"reason\": \"API_KEY_INVALID\",\n        \"domain\": \"googleapis.com\",\n        \"metadata\": {\n          \"service\": \"generativelanguage.googleapis.com\"\n        }\n      },\n      {\n        \"@type\": \"type.googleapis.com/google.rpc.LocalizedMessage\",\n        \"locale\": \"en-US\",\n        \"message\": \"API key not valid. Please pass a valid API key.\"\n      }\n    ]\n  }\n}\n",
+        "metadata": {
+          "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:streamGenerateContent?alt=sse"
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,44 @@
+test_content_type_is_validated (test_security.SecurityTest.test_content_type_is_validated) ... ok
+test_content_type_requires_exact_media_type (test_security.SecurityTest.test_content_type_requires_exact_media_type) ... ok
+test_context_checks_order_owner (test_security.SecurityTest.test_context_checks_order_owner) ... ok
+test_context_includes_only_order_product_reviews (test_security.SecurityTest.test_context_includes_only_order_product_reviews) ... ok
+test_context_is_bounded_with_escaped_review_text (test_security.SecurityTest.test_context_is_bounded_with_escaped_review_text) ... ok
+test_context_requires_auth (test_security.SecurityTest.test_context_requires_auth) ... ok
+test_context_sql_injection_rejected (test_security.SecurityTest.test_context_sql_injection_rejected) ... ok
+test_customer_cannot_forge_staff (test_security.SecurityTest.test_customer_cannot_forge_staff) ... ok
+test_customer_cannot_read_foreign_receipt (test_security.SecurityTest.test_customer_cannot_read_foreign_receipt) ... ok
+test_customer_cannot_read_other_profile (test_security.SecurityTest.test_customer_cannot_read_other_profile) ... ok
+test_customer_sees_only_own_orders (test_security.SecurityTest.test_customer_sees_only_own_orders) ... ok
+test_decision_requires_valid_schema (test_security.SecurityTest.test_decision_requires_valid_schema) ... ok
+test_errors_do_not_leak_exception_or_path (test_security.SecurityTest.test_errors_do_not_leak_exception_or_path) ... ok
+test_execute_cannot_delete_fixture_root (test_security.SecurityTest.test_execute_cannot_delete_fixture_root) ... ok
+test_execute_cannot_export_profiles (test_security.SecurityTest.test_execute_cannot_export_profiles) ... ok
+test_execute_cannot_read_foreign_receipt (test_security.SecurityTest.test_execute_cannot_read_foreign_receipt) ... ok
+test_execute_cannot_read_private_note (test_security.SecurityTest.test_execute_cannot_read_private_note) ... ok
+test_execute_requires_auth (test_security.SecurityTest.test_execute_requires_auth) ... ok
+test_logs_do_not_include_passwords_or_tokens (test_security.SecurityTest.test_logs_do_not_include_passwords_or_tokens) ... ok
+test_logs_exclude_nested_secrets_and_query_strings (test_security.SecurityTest.test_logs_exclude_nested_secrets_and_query_strings) ... ok
+test_logs_have_bounded_retention (test_security.SecurityTest.test_logs_have_bounded_retention) ... ok
+test_logs_not_public (test_security.SecurityTest.test_logs_not_public) ... ok
+test_lowercase_token_is_not_logged (test_security.SecurityTest.test_lowercase_token_is_not_logged) ... ok
+test_malformed_json_is_client_error (test_security.SecurityTest.test_malformed_json_is_client_error) ... ok
+test_orders_require_auth (test_security.SecurityTest.test_orders_require_auth) ... ok
+test_private_profile_requires_auth (test_security.SecurityTest.test_private_profile_requires_auth) ... ok
+test_profile_sql_injection_rejected (test_security.SecurityTest.test_profile_sql_injection_rejected) ... ok
+test_receipt_requires_auth (test_security.SecurityTest.test_receipt_requires_auth) ... ok
+test_review_count_is_bounded (test_security.SecurityTest.test_review_count_is_bounded) ... ok
+test_review_html_is_escaped (test_security.SecurityTest.test_review_html_is_escaped) ... ok
+test_review_length_is_bounded (test_security.SecurityTest.test_review_length_is_bounded) ... ok
+test_review_total_storage_is_bounded (test_security.SecurityTest.test_review_total_storage_is_bounded) ... ok
+test_reviews_require_valid_fields (test_security.SecurityTest.test_reviews_require_valid_fields) ... ok
+test_role_header_is_not_authorization (test_security.SecurityTest.test_role_header_is_not_authorization) ... ok
+test_search_does_not_disclose_other_customer (test_security.SecurityTest.test_search_does_not_disclose_other_customer) ... ok
+test_search_sql_injection_no_foreign_profiles (test_security.SecurityTest.test_search_sql_injection_no_foreign_profiles) ... ok
+test_server_controls_price (test_security.SecurityTest.test_server_controls_price) ... ok
+test_traversal_to_private_note_denied (test_security.SecurityTest.test_traversal_to_private_note_denied) ... ok
+test_wrong_json_shape_is_client_error (test_security.SecurityTest.test_wrong_json_shape_is_client_error) ... ok
+
+----------------------------------------------------------------------
+Ran 39 tests in 2.285s
+
+OK
