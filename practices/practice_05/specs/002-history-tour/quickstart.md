@@ -1,0 +1,2 @@
+# Validation
+npm run check; npm run dev. Демо: начать экскурсию, сравнить первую дату и число коммитов, пройти до конца и назад, завершить, воспользоваться range и share. Во время экскурсии play/seek/demo/culture закрывают её. Проверить widths 360/768/1440 и Tab/Enter. Mock NDJSON для пустой и partial истории; проверить исходную GitHub-ссылку. Unit: thresholds, duplicate SHA, bots, tie dates, short/empty, repeated deterministic output.

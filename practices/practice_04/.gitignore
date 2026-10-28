@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.env*
+!.env.example
+*.tsbuildinfo
+output/
+.playwright-cli/
+# Keep the reproducible after-save hook evidence with the submission.
+!docs/hook-example.log

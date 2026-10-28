@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "repo-atlas": {
+      "command": "node",
+      "args": ["--import", "tsx", "mcp/server.ts"],
+      "cwd": "/absolute/path/to/ITMOv2/practices/practice_04"
+    }
+  }
+}

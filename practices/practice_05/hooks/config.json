@@ -1,0 +1,7 @@
+{
+  "watchPaths": ["src", "tests", "mcp"],
+  "extensions": [".ts", ".tsx", ".css"],
+  "debounceMs": 500,
+  "runner": "scripts/check",
+  "log": "output/hooks/latest.log"
+}
