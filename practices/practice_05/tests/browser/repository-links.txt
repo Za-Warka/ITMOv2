@@ -1,0 +1,143 @@
+async (page) => {
+  const origin = "http://127.0.0.1:3000";
+  const date = "2024-01-02T00:00:00.000Z";
+  const snapshot = {
+    id: 999,
+    name: "owner/project",
+    description: "Fixture",
+    branch: "main",
+    demo: false,
+    archived: false,
+    fork: false,
+    languages: { Python: 100 },
+    commits: [1, 2, 3].map((i) => ({
+      sha: String(i).repeat(40),
+      date: `2024-01-0${i}T00:00:00.000Z`,
+      authorId: `user-${i}`,
+      authorName: `User ${i}`,
+      bot: false,
+      message: `Commit ${i}`,
+    })),
+    coverage: {
+      headSha: "3".repeat(40),
+      fetchedAt: date,
+      languagesFetchedAt: date,
+      historyComplete: false,
+      loadedCommitCount: 3,
+      rangeStart: "2024-01-01T00:00:00.000Z",
+      rangeEnd: "2024-01-03T00:00:00.000Z",
+      reasons: ["Partial fixture"],
+    },
+  };
+  await page.route("**/api/session", (route) =>
+    route.fulfill({ json: { authenticated: false, user: null } }),
+  );
+  let release;
+  const gate = new Promise((resolve) => (release = resolve));
+  await page.route("**/api/repository?*", async (route) => {
+    const repo = new URL(route.request().url()).searchParams.get("repo");
+    if (repo === "owner/slow") await gate;
+    const next =
+      repo === "owner/empty"
+        ? {
+            ...snapshot,
+            name: repo,
+            commits: [],
+            coverage: { ...snapshot.coverage, loadedCommitCount: 0 },
+          }
+        : snapshot;
+    await route
+      .fulfill({
+        contentType: "application/x-ndjson",
+        body: JSON.stringify({ type: "result", snapshot: next }) + "\n",
+      })
+      .catch(() => {});
+  });
+  await page.goto(
+    origin +
+      "/?repo=owner/project&date=" +
+      encodeURIComponent(date) +
+      "&tab=people&bots=1&culture=Rust",
+  );
+  await page
+    .locator("[role=tab][aria-selected=true]")
+    .filter({ hasText: "Жители" })
+    .waitFor();
+  await page
+    .getByRole("heading", { name: "owner/project", exact: true })
+    .waitFor();
+  await page
+    .getByRole("button", { name: "Скопировать ссылку на эпоху" })
+    .click();
+  let url = new URL(
+    await page
+      .getByRole("textbox", { name: "Ссылка на выбранную эпоху" })
+      .inputValue(),
+  );
+  if (url.searchParams.get("date") !== date || url.searchParams.has("culture"))
+    throw new Error("restore real");
+  await page
+    .getByRole("button", { name: "Начать экскурсию", exact: true })
+    .click();
+  const story = page.getByRole("region", {
+    name: "Экскурсия по истории",
+    exact: true,
+  });
+  await story
+    .getByText(
+      "Экскурсия охватывает только загруженную часть истории; более ранние события неизвестны.",
+      { exact: true },
+    )
+    .waitFor();
+  if (
+    (await story.getByRole("link").getAttribute("href")) !==
+    "https://github.com/owner/project/commit/" + "1".repeat(40)
+  )
+    throw new Error("source");
+  await page.goto(origin + "/?repo=owner/empty");
+  await page
+    .getByRole("heading", { name: "owner/empty", exact: true })
+    .waitFor();
+  if (
+    !(await page
+      .getByRole("button", { name: "Начать экскурсию", exact: true })
+      .isDisabled())
+  )
+    throw new Error("empty tour");
+  await page
+    .getByText("Для экскурсии нужны наблюдаемые коммиты.", { exact: true })
+    .waitFor();
+  await page.goto(
+    origin +
+      "/?repo=owner/slow&date=" +
+      encodeURIComponent(date) +
+      "&tab=people",
+  );
+  await page
+    .getByText("Читаем сведения о репозитории", { exact: false })
+    .waitFor();
+  if (
+    !(await page
+      .getByRole("button", { name: "Скопировать ссылку на эпоху" })
+      .isDisabled())
+  )
+    throw new Error("loading link");
+  await page
+    .getByRole("button", { name: "открыть пример", exact: true })
+    .click();
+  release();
+  await page
+    .getByRole("button", { name: "Скопировать ссылку на эпоху" })
+    .click();
+  url = new URL(
+    await page
+      .getByRole("textbox", { name: "Ссылка на выбранную эпоху" })
+      .inputValue(),
+  );
+  if (
+    url.searchParams.get("repo") !== "demo" ||
+    url.searchParams.get("tab") !== "chronicle"
+  )
+    throw new Error("stale restore");
+  await page.unroute("**/api/repository?*");
+}

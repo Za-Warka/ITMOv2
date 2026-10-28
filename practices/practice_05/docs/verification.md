@@ -89,3 +89,9 @@ Tests       37 passed (37)
 ## Обновление 7 октября: hook и материалы защиты
 
 Добавлены `hooks/after-save.mjs`, `hooks/config.json` и `npm run hook:demo`. Сохранение временного исходного файла автоматически вызвало `scripts/check`: lint, typecheck и 65 тестов — PASS. Журнал: [hook-example.log](hook-example.log). Повторный запуск `npm run mcp:verify` проверил успешный и оба ошибочных сценария. Сценарий защиты: [examples.md](../examples.md).
+
+## Практика 5 — GitHub Spec Kit, 2026-10-28
+
+Ссылка на эпоху: после реализации npm run check — 77 тестов PASS. Экскурсия: 88 тестов PASS. Обе прошли отдельные browser-сценарии, анализ и авторское ревью спецификации. Подробности: `docs/spec-kit-workflow.md`, `specs/001-share-era/verification.md`, `specs/002-history-tour/verification.md`. Новых ESLint warnings нет; сохраняются два исходных предупреждения img. GitHub/OAuth онлайн не проверялись, NDJSON и session в браузере mock.
+
+Production-проверка: `npm run build` — PASS; скомпилированы страницы `/`, `/account`, серверный `/api/repository`.

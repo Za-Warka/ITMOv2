@@ -1,0 +1,109 @@
+async (page) => {
+  const errors = [];
+  page.on("pageerror", (error) => errors.push(error.message));
+  await page.route("**/api/session", (route) =>
+    route.fulfill({ json: { authenticated: false, user: null } }),
+  );
+  await page.goto("http://127.0.0.1:3000/?repo=demo");
+  await page.getByRole("button", { name: "Начать экскурсию", exact: true }).focus();
+  await page.keyboard.press("Enter");
+  const story = page.getByRole("region", {
+    name: "Экскурсия по истории",
+    exact: true,
+  });
+  await story.waitFor();
+  const first = await story.locator("time").getAttribute("datetime");
+  if (
+    !(await page
+      .getByRole("button", { name: "Назад", exact: true })
+      .isDisabled())
+  )
+    throw new Error("first edge");
+  await page.getByRole("button", { name: "Далее", exact: true }).click();
+  const second = await story.locator("time").getAttribute("datetime");
+  if (first === second) throw new Error("demo should advance");
+  await page.getByRole("button", { name: "Назад", exact: true }).click();
+  if ((await story.locator("time").getAttribute("datetime")) !== first)
+    throw new Error("reverse");
+  for (let i = 0; i < 4; i++)
+    await page.getByRole("button", { name: "Далее", exact: true }).click();
+  if (
+    !(await page
+      .getByRole("button", { name: "Далее", exact: true })
+      .isDisabled())
+  )
+    throw new Error("last edge");
+  await page
+    .getByRole("button", { name: "Скопировать ссылку на эпоху" })
+    .click();
+  const shared = new URL(
+    await page
+      .getByRole("textbox", { name: "Ссылка на выбранную эпоху" })
+      .inputValue(),
+  );
+  if (
+    shared.searchParams.get("date") !==
+    (await story.locator("time").getAttribute("datetime"))
+  )
+    throw new Error("tour share exact date");
+  for (const width of [360, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    if (
+      await page.evaluate(
+        () => document.documentElement.scrollWidth > innerWidth,
+      )
+    )
+      throw new Error("overflow " + width);
+    await page
+      .locator("#world")
+      .screenshot({ path: `output/playwright/tour-${width}.png` });
+  }
+  const last = await story.locator("time").getAttribute("datetime");
+  await page.getByRole("button", { name: "Завершить экскурсию" }).click();
+  if (await story.count()) throw new Error("finish");
+  await page
+    .getByRole("button", { name: "Скопировать ссылку на эпоху" })
+    .click();
+  if (
+    new URL(
+      await page
+        .getByRole("textbox", { name: "Ссылка на выбранную эпоху" })
+        .inputValue(),
+    ).searchParams.get("date") !== last
+  )
+    throw new Error("finish date");
+  for (const action of ["play", "seek", "culture", "demo", "load"]) {
+    await page
+      .getByRole("button", { name: "Начать экскурсию", exact: true })
+      .click();
+    if (action === "play")
+      await page
+        .getByRole("button", { name: "▷ Смотреть историю", exact: true })
+        .click();
+    if (action === "seek")
+      await page
+        .getByRole("button", { name: "К концу истории", exact: true })
+        .click();
+    if (action === "culture")
+      await page
+        .getByRole("combobox", { name: "Культура примера" })
+        .selectOption("Python");
+    if (action === "demo")
+      await page
+        .getByRole("button", { name: "открыть пример", exact: true })
+        .click();
+    if (action === "load") {
+      await page
+        .getByRole("textbox", { name: "Ссылка на GitHub-репозиторий" })
+        .fill("invalid");
+      await page
+        .getByRole("button", { name: "Построить мир", exact: false })
+        .click();
+    }
+    await page
+      .getByRole("button", { name: "Начать экскурсию", exact: true })
+      .waitFor();
+    if (await story.count()) throw new Error("manual action " + action);
+  }
+  if (errors.length) throw new Error(errors.join("\n"));
+}

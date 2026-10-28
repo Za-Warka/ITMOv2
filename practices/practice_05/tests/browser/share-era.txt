@@ -1,0 +1,81 @@
+async (page) => {
+  await page.route("**/api/session", (route) =>
+    route.fulfill({ json: { authenticated: false, user: null } }),
+  );
+  const origin = "http://127.0.0.1:3000";
+  await page.goto(
+    origin +
+      "/?repo=demo&date=2024-01-01T00%3A00%3A00.000Z&tab=people&bots=1&culture=Python&token=omit",
+  );
+  await page
+    .locator("[role=tab][aria-selected=true]")
+    .filter({ hasText: "Жители" })
+    .waitFor();
+  if (
+    !(await page
+      .getByRole("checkbox", { name: "Учитывать ботов-мастеров" })
+      .isChecked())
+  )
+    throw new Error("bots");
+  await page.evaluate(() =>
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async () => {} },
+    }),
+  );
+  await page
+    .getByRole("button", { name: "Скопировать ссылку на эпоху" })
+    .click();
+  await page.getByText("Ссылка скопирована.", { exact: true }).waitFor();
+  const field = page.getByRole("textbox", {
+    name: "Ссылка на выбранную эпоху",
+  });
+  const link = await field.inputValue();
+  const url = new URL(link);
+  if (
+    url.searchParams.get("date") !== "2024-01-01T00:00:00.000Z" ||
+    url.searchParams.get("culture") !== "Python" ||
+    url.searchParams.has("token")
+  )
+    throw new Error(link);
+  await page.goto(link);
+  await page
+    .locator("[role=tab][aria-selected=true]")
+    .filter({ hasText: "Жители" })
+    .waitFor();
+  await page.evaluate(() =>
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: {
+        writeText: async () => {
+          throw new Error("denied");
+        },
+      },
+    }),
+  );
+  await page
+    .getByRole("button", { name: "Скопировать ссылку на эпоху" })
+    .click();
+  await page
+    .getByText("Не удалось скопировать автоматически.", { exact: false })
+    .waitFor();
+  await field.focus();
+  await page.keyboard.press("Tab");
+  for (const width of [360, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    if (
+      await page.evaluate(
+        () => document.documentElement.scrollWidth > innerWidth,
+      )
+    )
+      throw new Error("overflow " + width);
+  }
+  await page.goto(origin + "/?repo=demo&date=2000-01-01T00%3A00%3A00.000Z");
+  await page
+    .getByText("Дата вне доступного периода.", { exact: false })
+    .waitFor();
+  await page.goto(origin + "/?repo=demo&date=invalid");
+  await page
+    .getByText("Некорректная дата в ссылке.", { exact: false })
+    .waitFor();
+}

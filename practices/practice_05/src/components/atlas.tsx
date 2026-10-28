@@ -12,6 +12,10 @@ import {
 } from "@/domain/world";
 import { demoSnapshot } from "@/fixtures/demo";
 import { Island } from "./island";
+import { readEraLink, resolveEraDate, EraLinkState } from "@/domain/era-link";
+import { buildTour } from "@/domain/history-tour";
+import { HistoryTour } from "./history-tour";
+import { ShareEra } from "./share-era";
 import { AuthControls } from "./auth-controls";
 import { UserSearch } from "./user-search";
 import s from "./atlas.module.css";
@@ -45,6 +49,12 @@ export default function Atlas() {
   const [position, setPosition] = useState(1000),
     [playing, setPlaying] = useState(false),
     [speed, setSpeed] = useState(1);
+  const [tourIndex, setTourIndex] = useState<number | null>(null);
+  const tourStops = useMemo(() => buildTour(snapshot), [snapshot]);
+  const tourStop = tourIndex === null ? undefined : tourStops[tourIndex];
+  const [exactDate, setExactDate] = useState<string | null>(null);
+  const [linkNotice, setLinkNotice] = useState("");
+  const [demoCulture, setDemoCulture] = useState<string | undefined>();
   const atEnd = position >= 1000;
   const [tab, setTab] = useState<Tab>("chronicle");
   const [selected, setSelected] = useState<string | null>(null),
@@ -55,9 +65,9 @@ export default function Atlas() {
   const lastSelection = useRef<Element | null>(null);
   const start = Date.parse(snapshot.coverage.rangeStart),
     end = Date.parse(snapshot.coverage.rangeEnd);
-  const date = new Date(
-    start + ((end - start) * position) / 1000,
-  ).toISOString();
+  const date =
+    exactDate ??
+    new Date(start + ((end - start) * position) / 1000).toISOString();
   const world = useMemo(
     () => buildWorld(snapshot, date, includeBots),
     [snapshot, date, includeBots],
@@ -90,12 +100,50 @@ export default function Atlas() {
   }, [playing, speed, atEnd]);
   useEffect(() => () => controller.current?.abort(), []);
   useEffect(() => {
-    const repo = new URLSearchParams(window.location.search).get("repo");
-    if (repo) {
-      void loadRepository(repo);
-    }
+    const timer = window.setTimeout(() => {
+      try {
+        const { state, warnings } = readEraLink(
+          new URLSearchParams(window.location.search),
+        );
+        setLinkNotice(warnings.join(" "));
+        if (state.repo)
+          void loadRepository(state.repo, state, warnings.join(" "));
+        else {
+          if (state.culture)
+            setSnapshot({
+              ...demoSnapshot,
+              languages: { [state.culture]: 100000 },
+            });
+          setDemoCulture(state.culture);
+          restoreEra(demoSnapshot, state, warnings.join(" "));
+        }
+      } catch (err) {
+        setError((err as Error).message);
+      }
+    }, 0);
+    return () => window.clearTimeout(timer);
+    // URL initialization runs once; subsequent loads are explicit user actions.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  async function loadRepository(repositoryInput: string) {
+  function restoreEra(
+    next: RepositorySnapshot,
+    state: EraLinkState,
+    warning = "",
+  ) {
+    const restored = resolveEraDate(state.date, next.coverage);
+    setPosition(restored.position);
+    setExactDate(restored.date);
+    setTab(state.tab);
+    setIncludeBots(state.includeBots);
+    setLinkNotice([warning, restored.notice].filter(Boolean).join(" "));
+    setPlaying(false);
+  }
+  async function loadRepository(
+    repositoryInput: string,
+    restore?: EraLinkState,
+    restoreWarning = "",
+  ) {
+    setTourIndex(null);
     controller.current?.abort();
     const id = ++requestId.current;
     setPlaying(false);
@@ -149,6 +197,10 @@ export default function Atlas() {
             const next = snapshotSchema.parse(message.snapshot);
             setSnapshot(next);
             setPosition(1000);
+            setExactDate(null);
+            setDemoCulture(undefined);
+            if (restore) restoreEra(next, restore, restoreWarning);
+            else setLinkNotice("");
             setSelected(null);
             complete = true;
           }
@@ -169,9 +221,13 @@ export default function Atlas() {
     await loadRepository(input);
   }
   function openDemo() {
+    setTourIndex(null);
     controller.current?.abort();
     requestId.current++;
     setSnapshot(demoSnapshot);
+    setExactDate(null);
+    setDemoCulture(undefined);
+    setLinkNotice("");
     setPosition(1000);
     setPlaying(false);
     setSelected(null);
@@ -180,9 +236,22 @@ export default function Atlas() {
     setInput("");
   }
   function seek(value: number) {
+    setTourIndex(null);
+    setExactDate(null);
     setPosition(value);
     setPlaying(false);
     setSelected(null);
+  }
+  function visitStop(index: number) {
+    const stop = tourStops[index];
+    if (!stop) return;
+    const restored = resolveEraDate(stop.date, snapshot.coverage);
+    setTourIndex(index);
+    setPosition(restored.position);
+    setExactDate(restored.date);
+    setPlaying(false);
+    setSelected(null);
+    setTab("chronicle");
   }
   function closeDetails() {
     setSelected(null);
@@ -340,6 +409,8 @@ export default function Atlas() {
                 id="demo-culture"
                 value={world.dominantLanguage}
                 onChange={(e) => {
+                  setTourIndex(null);
+                  setDemoCulture(e.target.value);
                   setSnapshot({
                     ...demoSnapshot,
                     languages: { [e.target.value]: 100000 },
@@ -518,6 +589,14 @@ export default function Atlas() {
                   >
                     {tab === "chronicle" && (
                       <>
+                        {tourStop && tourIndex !== null && (
+                          <HistoryTour
+                            stop={tourStop}
+                            index={tourIndex}
+                            count={tourStops.length}
+                            snapshot={snapshot}
+                          />
+                        )}
                         <div className={s.activity}>
                           <span className={s.activityDot} />
                           <div>
@@ -734,6 +813,52 @@ export default function Atlas() {
             </aside>
           </div>
           <div className={s.timeline}>
+            <div className={s.tourControls} aria-label="Управление экскурсией">
+              {tourIndex === null ? (
+                <button
+                  disabled={Boolean(loading) || !tourStops.length}
+                  onClick={() => visitStop(0)}
+                >
+                  Начать экскурсию
+                </button>
+              ) : (
+                <>
+                  <span>
+                    Остановка {tourIndex + 1} из {tourStops.length}
+                  </span>
+                  <button
+                    disabled={tourIndex === 0}
+                    onClick={() => visitStop(tourIndex - 1)}
+                  >
+                    Назад
+                  </button>
+                  <button
+                    disabled={tourIndex === tourStops.length - 1}
+                    onClick={() => visitStop(tourIndex + 1)}
+                  >
+                    Далее
+                  </button>
+                  <button onClick={() => setTourIndex(null)}>
+                    Завершить экскурсию
+                  </button>
+                </>
+              )}
+              {!tourStops.length && (
+                <p>Для экскурсии нужны наблюдаемые коммиты.</p>
+              )}
+            </div>
+            <ShareEra
+              key={`${snapshot.id}:${date}:${tab}:${includeBots}:${demoCulture}`}
+              disabled={Boolean(loading)}
+              state={{
+                repo: snapshot.demo ? null : snapshot.name,
+                date,
+                tab,
+                includeBots,
+                culture: demoCulture,
+              }}
+            />
+            {linkNotice && <p role="status">{linkNotice}</p>}
             <div className={s.timelineTop}>
               <div>
                 <span className={s.overline}>Путешествие во времени</span>
@@ -750,6 +875,8 @@ export default function Atlas() {
                 <button
                   className={s.play}
                   onClick={() => {
+                    setTourIndex(null);
+                    setExactDate(null);
                     if (position >= 1000) {
                       setPosition(0);
                       setPlaying(true);

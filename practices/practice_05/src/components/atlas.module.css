@@ -1420,7 +1420,7 @@
   color: #59654f;
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: .07em;
+  letter-spacing: 0.07em;
 }
 .repositoryActions {
   display: flex;
@@ -1488,4 +1488,88 @@
     width: 100%;
     margin-left: 90px;
   }
+}
+
+.shareEra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  margin-bottom: 18px;
+}
+.shareEra button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--forest);
+  border-radius: 8px;
+  color: var(--forest);
+  background: var(--surface);
+  cursor: pointer;
+}
+.shareEra small {
+  flex: 1 1 220px;
+  font-size: 12px;
+}
+.shareEra > div {
+  flex-basis: 100%;
+  min-width: 0;
+}
+.shareEra input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 10px;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--sand);
+  border-radius: 8px;
+}
+.shareEra button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.tourControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.tourControls button {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--forest);
+  border-radius: 8px;
+  color: var(--forest);
+  background: var(--surface);
+  cursor: pointer;
+}
+.tourControls button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.tourControls button:focus-visible,
+.shareEra button:focus-visible,
+.shareEra input:focus-visible {
+  outline: 3px solid var(--forest);
+  outline-offset: 3px;
+}
+.tourStory {
+  padding: 16px 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--sand);
+  overflow-wrap: anywhere;
+}
+.tourStory h4 {
+  font-family: "Literata Variable", Georgia, serif;
+  font-size: 20px;
+  margin: 8px 0;
+}
+.tourStory p {
+  margin: 10px 0;
+}
+.tourStory small {
+  display: block;
+  font-size: 12px;
 }
